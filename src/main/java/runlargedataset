@@ -1,0 +1,7 @@
+#!/bin/sh
+hdfs dfs -put transition.txt /transition
+hdfs dfs -rm -r /output*
+hdfs dfs -rm -r /pagerank*
+hdfs dfs -mkdir /pagerank0
+hdfs dfs -put pr.txt /pagerank0
+hadoop jar pr.jar Driver /transition /pagerank /output 5 0.2
